@@ -97,7 +97,7 @@ updatePullImagesUrl(){
 	mkdir -p /etc/docker	
 	tee /etc/docker/daemon.json <<-'EOF'
 	{
-		"registry-mirrors": ["https://yo9l653d.mirror.aliyuncs.com"]
+		"registry-mirrors": ["https://registry.docker-cn.com"]
 	}
 	EOF
 	systemctl daemon-reload
@@ -179,14 +179,11 @@ callFun "installUpdateTimeService"
 
 #安装dockert
 callFun "installDocker"
-
 callFun "startDocker"
-
 callFun "stopDocker"
 
-
 #防火墙
-callFun "openFireWall"
+#callFun "openFireWall"
 
 #更新docker配置
 callFun "updatePullImagesUrl"
